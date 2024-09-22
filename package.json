@@ -1,9 +1,9 @@
 {
-  "name": "Angular-Chat",
+  "name": "angular-chat",
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm install concurrently --save && concurrently \"ng serve\" \"cd src && node server.js\"",
     "build": "ng build"
   },
   "dependencies": {

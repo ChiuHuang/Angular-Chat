@@ -23,31 +23,35 @@ This is a simple chat application built with Angular, utilizing WebSockets for r
 - Node.js (>= 14.x)
 - Angular CLI (>= 12.x)
 
-### Build/Host
-## Method 1 (No install) (Online)
-### This method is based on **Stackblitz**
+## Build/Host
+### Method 1 (Online) No Install
+#### This is Based on **stackblitz**
+### Steps
 1. **Open this project in your broswer**
-    [Here](https://stackblitz.com/~/github.com/CodeFoxy-Github/Angular-Chat)
-   or `https://stackblitz.com/~/github.com/CodeFoxy-Github/Angular-Chat`
-3. **Done!**
-## Method 2 (Local)
+
+    [Here](https://stackblitz.com/~/github.com/CodeFoxy-Github/Angular-Chat) 
+
+   `https://stackblitz.com/~/github.com/CodeFoxy-Github/ Angular-Chat`
+
+2. **Wait the Magic Happend**
+
+    Maybe wait a minute.
+
+    Until the console Says `Check it out!`
+5. **Open the application**:
+
+   Open your browser and go to 
+   [`https://angularchat-4y5b-bmkesdkt--4200--e7ca9335.local-credentialless.webcontainer.io`](https://angularchat-4y5b-bmkesdkt--4200--e7ca9335.local-credentialless.webcontainer.io).
+
 1. **Clone the repository**:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/CodeFoxy-Github/Angular-Chat
+   cd https://github.com/CodeFoxy-Github/Angular-Chat
    ```
 
 
-2. **Start the backend server**:
-
-   Navigate to the server folder `/src` and run:
-
-   ```bash
-   node server.js
-   ```
-
-3. **Install dependencies And Start the Angular application**:
+3. **Install dependencies And Start the Angular application, Server**:
 
    In a separate terminal window, navigate to the Angular application folder **and edit the server URL** and run:
 
