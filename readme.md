@@ -27,8 +27,9 @@ This is a simple chat application built with Angular, utilizing WebSockets for r
 ## Method 1 (No install) (Online)
 ### This method is based on **Stackblitz**
 1. **Open this project in your broswer**
-    Here
-2. **Done!**
+    [Here](https://stackblitz.com/~/github.com/CodeFoxy-Github/Angular-Chat)
+   or `https://stackblitz.com/~/github.com/CodeFoxy-Github/Angular-Chat`
+3. **Done!**
 ## Method 2 (Local)
 1. **Clone the repository**:
 
