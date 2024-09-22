@@ -37,7 +37,7 @@ This is a simple chat application built with Angular, utilizing WebSockets for r
 
     Maybe wait a minute.
 
-    Until the console Says `Check it out!`
+    Until the console Says `Check it out!` or keep waiting
 5. **Open the application**:
 
    Open your browser and go to 
