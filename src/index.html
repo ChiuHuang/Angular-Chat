@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Angular Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css" />
+    <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+    <style>
+      body {
+        background-color: #faf9fd;
+      }
+      body {
+        overflow: hidden; /* Hide scrollbars */
+      }
+      .loading-container {
+        text-align: center;
+
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <app-root>
+      <div class="loading-container">
+        <h3>Loading...</h3>
+        <mdui-circular-progress></mdui-circular-progress>
+      </div>
+    </app-root>
+  </body>
+</html>
