@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "npm install concurrently --save && concurrently \"ng serve\" \"cd src && node server.js\"",
+    "start": "npm install concurrently --save && concurrently \"ng serve\" \"echo Check it out!\" \"cd src && node server.js\" ",
     "build": "ng build"
   },
   "dependencies": {
