@@ -41,18 +41,18 @@ interface Message {
     ReactiveFormsModule,
   ],
   template: `
-    <h1 mat-dialog-title>Enter Your Name</h1>
+    <h1 mat-dialog-title>請輸入您的姓名</h1>
     <div mat-dialog-content>
       <mat-form-field>
-        <input matInput [formControl]="nameControl" placeholder="Name">
+        <input matInput [formControl]="nameControl" placeholder="姓名">
         <mat-error *ngIf="nameControl.hasError('required')">
-          Name cannot be empty
+          姓名不能為空
         </mat-error>
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
-      <button mat-button (click)="onCancel()" *ngIf="data.showCancel">Cancel</button>
-      <button mat-button (click)="onSave()" [disabled]="nameControl.invalid" cdkFocusInitial>Save</button>
+      <button mat-button (click)="onCancel()" *ngIf="data.showCancel">取消</button>
+      <button mat-button (click)="onSave()" [disabled]="nameControl.invalid" cdkFocusInitial>儲存</button>
     </div>
   `,
 })
@@ -93,18 +93,18 @@ export class NameDialogComponent {
   ],
   template: `
     <mat-toolbar color="primary">
-      <span>Angular Chat</span>
+      <span>Angular 聊天室</span>
       
-      <span class="username"*ngIf="username">Username: {{ username }}</span>
-        <span class="username"*ngIf="!username">Username Not set</span>
-        <button
-          mat-fab extended
-          (click)="openNameDialog()"
-          aria-label="Set name"
-        >
-          <mat-icon>edit</mat-icon>
-          Set name
-        </button>
+      <span class="username" *ngIf="username">使用者名稱: {{ username }}</span>
+      <span class="username" *ngIf="!username">尚未設置使用者名稱</span>
+      <button
+        mat-fab extended
+        (click)="openNameDialog()"
+        aria-label="設定名稱"
+      >
+        <mat-icon>edit</mat-icon>
+        設定名稱
+      </button>
     </mat-toolbar>
 
     <div class="container">
@@ -113,8 +113,8 @@ export class NameDialogComponent {
           *ngFor="let message of messages"
           class="message"
           [ngClass]="{
-            sent: message.sender === 'You',
-            received: message.sender !== 'You'
+            sent: message.sender === '你',
+            received: message.sender !== '你'
           }"
         >
           <strong>{{ message.sender }}</strong>
@@ -128,7 +128,7 @@ export class NameDialogComponent {
           <input
             matInput
             [(ngModel)]="newMessage"
-            placeholder="Type a message"
+            placeholder="輸入訊息"
             (keyup.enter)="sendMessage()"
             [disabled]="!username"
           />
@@ -139,7 +139,7 @@ export class NameDialogComponent {
           (click)="sendMessage()"
           [disabled]="!username"
         >
-          Send
+          發送
         </button>
       </div>
     </div>
@@ -157,18 +157,17 @@ export class NameDialogComponent {
     }
 
     body {
-      overflow: hidden; /* Hide scrollbars */
+      overflow: hidden; /* 隱藏滾動條 */
     }
     mat-toolbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 64px; /* Standard Material toolbar height */
+      height: 64px; /* 標準的 Material 工具列高度 */
     }
 
-
     .chat-messages {
-      height: calc(100vh - 190px); /* Adjust for toolbar and input area */
+      height: calc(100vh - 190px); /* 調整工具列和輸入區域的高度 */
       border: 1px solid #ccc;
       padding: 10px;
       margin-bottom: 20px;
@@ -200,18 +199,19 @@ export class NameDialogComponent {
     .full-width {
       width: 100%;
     }
-    .toolbar-center {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* Divide toolbar center into three sections */
-  align-items: center; /* Center items vertically */
-  height: 100%;
-}
 
-.username {
-  text-align:center
-  grid-column: 2; /* Place username in the second section */
-}
-  `,
+    .toolbar-center {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr; /* 將工具列分成三個區塊 */
+      align-items: center; /* 垂直居中對齊 */
+      height: 100%;
+    }
+
+    .username {
+      text-align: center;
+      grid-column: 2; /* 將使用者名稱置於第二區塊 */
+    }
+    `,
   ],
 })
 export class App implements OnInit, OnDestroy {
@@ -237,7 +237,7 @@ export class App implements OnInit, OnDestroy {
     );
 
     this.socket.onopen = () => {
-      console.log('WebSocket connection established');
+      console.log('WebSocket 連線已建立');
     };
 
     this.socket.onmessage = (event) => {
@@ -250,7 +250,7 @@ export class App implements OnInit, OnDestroy {
     };
 
     this.socket.onclose = () => {
-      console.log('WebSocket connection closed');
+      console.log('WebSocket 連線已關閉');
     };
   }
 
@@ -268,7 +268,7 @@ export class App implements OnInit, OnDestroy {
     ) {
       const message: Message = {
         text: this.newMessage,
-        sender: this.username || 'You',
+        sender: this.username || '你',
         timestamp: new Date(),
       };
       this.messages.push(message);
@@ -280,37 +280,37 @@ export class App implements OnInit, OnDestroy {
   openNameDialog(): void {
     const dialogRef = this.dialog.open(NameDialogComponent, {
       width: '250px',
-      disableClose: !this.username, // Disable closing by clicking outside only if username is not set
-      data: { showCancel: !!this.username }, // Pass whether to show cancel button
+      disableClose: !this.username, // 如果尚未設定使用者名稱，禁用點擊外部關閉
+      data: { showCancel: !!this.username }, // 傳遞是否顯示取消按鈕
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        const previousUsername = this.username; // Store the previous username
+        const previousUsername = this.username; // 保存之前的使用者名稱
         this.username = result;
 
-        // Show a snackbar notification when the username is set or updated
+        // 設置或更新使用者名稱時，顯示 Snackbar 提示
         let snackBarRef = this.snackBar.open(
-          `Name set to: ${this.username}`,
-          'Undo',
+          `使用者名稱設定為: ${this.username}`,
+          '復原',
           {
             duration: 3000,
           }
         );
 
-        // Handle the 'Undo' action
+        // 處理 '復原' 動作
         snackBarRef.onAction().subscribe(() => {
-          this.username = previousUsername; // Reset to the previous username
+          this.username = previousUsername; // 還原到之前的使用者名稱
 
-          this.snackBar.open('Username reset', '', {
+          this.snackBar.open('使用者名稱已復原', '', {
             duration: 2000,
           });
         });
       } else if (!this.username) {
-        // If the dialog was cancelled and no username is set, reopen it
+        // 如果取消對話框並且未設定使用者名稱，重新打開
         this.openNameDialog();
       } else {
-        console.log('Dialog was cancelled, keeping existing username');
+        console.log('對話框已取消，保留現有的使用者名稱');
       }
     });
   }
