@@ -29,15 +29,14 @@ This is a simple chat application built with Angular, utilizing WebSockets for r
 ### Steps
 1. **Open this project in your broswer**
 
-    [Here](https://stackblitz.com/~/github.com/CodeFoxy-Github/Angular-Chat) 
+    [Here](https://stackblitz.com/~/github.com/ChiuHuang/Angular-Chat) 
 
-   `https://stackblitz.com/~/github.com/CodeFoxy-Github/ Angular-Chat`
+   `https://stackblitz.com/~/github.com/ChiuHuang/Angular-Chat`
 
 2. **Wait the Magic Happend**
 
     Maybe wait a minute.
 
-    Until the console Says `Check it out!`
 5. **Open the application**:
 
    Open your browser and go to 
@@ -47,8 +46,8 @@ This is a simple chat application built with Angular, utilizing WebSockets for r
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/CodeFoxy-Github/Angular-Chat
-   cd https://github.com/CodeFoxy-Github/Angular-Chat
+   git clone https://github.com/ChiuHuang/Angular-Chat
+   cd https://github.com/ChiuHuang/Angular-Chat
    ```
 
 
